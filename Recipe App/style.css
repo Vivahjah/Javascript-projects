@@ -64,7 +64,26 @@ header button {
 }
 
 .fav-meals li {
-    width: 85px
+    width: 85px;
+    position: relative;
+    cursor: pointer;
+    margin: 5px;
+    width: 75px;
+}
+
+.fav-meals li .clear {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    top: -0.5rem;
+    right: -0.5rem;
+    font-size: 1.2rem;
+    opacity: 0;
+}
+
+.fav-meals li:hover .clear {
+    opacity: 1;
 }
 
 .fav-meals li img {
@@ -77,13 +96,24 @@ header button {
 }
 
 .fav-meals li span {
+    display: inline-block;
     font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 75px;
+}
+
+.fav-meals li:hover span {
+    white-space: normal;
+    overflow: auto;
 }
 
 .meal {
     margin: 1.5rem;
     border-radius: 3px;
     box-shadow: 0 0 10px 2px #3333331a;
+    cursor: pointer;
 }
 
 .meal-header {
@@ -122,6 +152,50 @@ header button {
     font-size: 1.2rem;
 }
 
-.meal-body .fav-btn.ative {
-    color: red;
+.meal-body .fav-btn.active {
+    color: rgb(109, 103, 103);
+}
+
+.popup {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 0 2rem;
+    overflow: auto;
+    margin: 2rem;
+    max-height: 100vh;
+    max-width: 800px;
+    padding: 0 2rem;
+    position: relative;
+    width: 100%;
+}
+
+.popup-container {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.popup-container.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.popup .close-popup {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.meal-info h1 {
+    text-align: center;
 }
