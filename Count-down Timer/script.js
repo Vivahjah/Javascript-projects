@@ -3,7 +3,10 @@ const hoursEl = document.getElementById('hours');
 const minsEl = document.getElementById('minutes');
 const secEl = document.getElementById('seconds');
 
-const newYears = '1 Jan 2022';
+let formatTime = (time) => time < 10 ? `0${time}` : time;
+
+// incase is not showing well, Update this date
+const newYears = '1 May 2022';
 
 const countdown = () => {
     const newYearsDate = new Date(newYears);
@@ -21,9 +24,7 @@ const countdown = () => {
 }
 
 
-const formatTime = (time) => {
-    return time < 10 ? `0${time}` : time;
-}
+
 
 countdown();
 setInterval(countdown, 1000);
