@@ -10,8 +10,8 @@ addBtn.addEventListener('click', () => {
 });
 
 const addNewNote = (text = '') => {
-        const note = document.createElement('div');
         const getE = (element) => note.querySelector(element);
+        const note = document.createElement('div');
         note.classList.add('note');
 
         note.innerHTML = String.raw `
@@ -21,7 +21,7 @@ const addNewNote = (text = '') => {
                 <button class="delete"> <i class = "fas fa-trash-alt"></i></button>
             </div>
             <div class="main"></div>
-            <textarea></textarea>
+            <textarea class="hidden"></textarea>
        </div>
     
             `;
