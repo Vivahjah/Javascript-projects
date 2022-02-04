@@ -4,10 +4,42 @@ const search = document.getElementById('search');
 
 const APIURL = "https://api.github.com/users/";
 
-const getUser = async(user) => {
-    const resp = await fetch(APIURL + user);
+const addReposToCard = (repos) => {
+    const reposEl = document.getElementById('repos');
+
+    repos.forEach(repo => {
+        const repoEl = document.createElement('a');
+        repoEl.classList.add('repos');
+
+        repoEl.href = repo.html_url;
+        repoEl.target = " _blank";
+        repoEl.innerText = repo.name;
+
+        reposEl.appendChild(repoEl);
+
+    })
+
+}
+
+const getRepos = async(username) => {
+
+    const resp = await fetch(APIURL + username + '/repos');
     const respData = await resp.json();
 
+    addReposToCard(respData);
+
+
+
+
+}
+
+
+const getUser = async(username) => {
+    const resp = await fetch(APIURL + username);
+    const respData = await resp.json();
+
+
+    getRepos(username);
     createUserCard(respData);
 
 }
@@ -16,7 +48,7 @@ const createUserCard = (user) => {
 
     const cardHTML = String.raw `
         <div class="card">
-            <div class="img-container">
+            <div >
                 <img class="avatar" src="${avatar_url}" alt="${name}">
             </div>
             <div class="user-info">
@@ -28,10 +60,15 @@ const createUserCard = (user) => {
                     <li>${following}<strong>Following</strong></li>
                     <li>${public_repos}<strong>Repos</strong></li>
                 </ul>
+                <div id="repos">
+
+                </div>
             </div>
         </div>
     
     `;
+
+    getRepos(user);
     main.innerHTML = cardHTML;
 
 }
@@ -49,4 +86,3 @@ form.addEventListener('submit', (e) => {
 
 
 })
-getUser('florinpop17');

@@ -39,12 +39,6 @@ input:focus {
     padding: 3rem;
 }
 
-.img-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .avatar {
     border: 10px solid #2a2565;
     border-radius: 50%;
@@ -78,4 +72,16 @@ input:focus {
 .user-info ul li strong {
     font-size: 0.8rem;
     margin-left: 0.5rem;
+}
+
+.repos {
+    background-color: #2a2565;
+    display: inline-block;
+    border-radius: 5px;
+    color: #D0D1DB;
+    font-size: 0.7rem;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
 }
