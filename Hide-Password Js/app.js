@@ -11,13 +11,13 @@ iconEye.addEventListener("click", () => {
         //Switch to text
         input.type = "text"
 
-        iconEye.classList.add("bx-show")
-        overlay.classList.add("overlay-content");
+        iconEye.classList.add("bx-show") //add the class of bx-show
+        overlay.classList.add("overlay-content"); //add class overlay-content
 
     } else {
         input.type = "password";
-        iconEye.classList.remove("bx-show")
-        overlay.classList.remove("overlay-content");
+        iconEye.classList.remove("bx-show") //removes the class of bx-show
+        overlay.classList.remove("overlay-content"); //removes class overlay-content
 
     }
 
